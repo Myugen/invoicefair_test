@@ -6,10 +6,7 @@ import com.invoicefair.server.services.BalanceService;
 import javassist.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(BalanceResource.PATH)
@@ -20,6 +17,7 @@ public class BalanceResource extends AbstractApiV1Resource {
 
     public final BalanceService balanceService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/{username}")
     public ResponseEntity<BalanceResponse> findOne(@PathVariable("username") String username) {
         BalanceResponse response;
