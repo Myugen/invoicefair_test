@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSelectModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
@@ -8,13 +8,15 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     CommonModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    NbSelectModule
   ],
   exports: [
     CommonModule,
     NbThemeModule,
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    NbSelectModule
   ],
   declarations: [],
   providers: [],
