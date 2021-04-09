@@ -1,12 +1,12 @@
 <ng-container>
   <nb-layout>
-    <nb-layout-column>
+    <nb-layout-column class="centered">
       <h1>Parent</h1>
       <div *ngIf="!!mail; then userSelectedBlock else notUserSelectedBlock"></div>
       <ng-template #userSelectedBlock><p>Account <b>{{mail}}</b> has a balance of <b>{{totalBalance | currency: 'EUR'}}</b></p></ng-template>
       <ng-template #notUserSelectedBlock><p>Please select an user account to show the current balance</p></ng-template>
     </nb-layout-column>
-    <nb-layout-column class="children">
+    <nb-layout-column class="children centered">
       <app-child (selectedUsername)="onSelectUsername($event)"></app-child>
     </nb-layout-column>
   </nb-layout>

@@ -6,3 +6,10 @@
     rgba(255, 0, 78, 1) 100%
   );
 }
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
