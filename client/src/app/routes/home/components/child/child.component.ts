@@ -3,8 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 type User = {displayName: string, username: string};
 @Component({
   selector: 'app-child',
-  templateUrl: 'child.component.html',
-  styleUrls: ['./child.component.scss']
+  templateUrl: 'child.component.html'
 })
 export class ChildComponent implements OnInit {
   public name: string;

@@ -1,4 +1,7 @@
-<p>{{name}}</p>
-<nb-select placeholder="Select user" (selectedChange)="onChangeMethod($event)" [(selected)]="selectedUser">
-  <nb-option *ngFor="let user of users;" [value]="user.username">{{user.displayName}}</nb-option>
-</nb-select>
+<div>
+  <h1>{{name}}</h1>
+  <p>Select an account</p>
+  <nb-select placeholder="Select user" (selectedChange)="onChangeMethod($event)" [(selected)]="selectedUser">
+    <nb-option *ngFor="let user of users;" [value]="user.username">{{user.displayName}}</nb-option>
+  </nb-select>
+</div>

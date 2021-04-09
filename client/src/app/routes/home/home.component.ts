@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BalanceService } from 'src/app/core/services/balance.service';
-import { Balance } from 'src/app/models/balance';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.component.html'
+  templateUrl: 'home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 
 export class HomeComponent implements OnInit {
