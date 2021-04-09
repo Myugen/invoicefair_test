@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+  datasource:
+    platform: postgres
+    url: "jdbc:postgresql://localhost:5432/invoice_fair"
+    username: foo
+    password: bar
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    changeLog: "classpath:db/changelog/db.changelog-master.yaml"
+
+server:
+  port: 8080

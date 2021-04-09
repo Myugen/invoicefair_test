@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: invoice_fair
+      POSTGRES_USER: foo
+      POSTGRES_PASSWORD: bar
+    ports:
+      - "5432:5432"

@@ -1,0 +1,120 @@
+databaseChangeLog:
+  - changeSet:
+      author: "invoice_fair"
+      id: "changelog-1.0_1"
+      changes:
+        - createSequence:
+            sequenceName: "seq_currency_id"
+            initialValue: 1
+            incrementBy: 50
+        - createTable:
+            tableName: "currencies"
+            columns:
+              - column:
+                  name: "id"
+                  type: "bigint"
+                  defaultValueSequenceNext: "seq_currency_id"
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: "pk_currencies"
+              - column:
+                  name: "currency"
+                  type: "varchar(255)"
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: "conversors"
+                  type: "json"
+  - changeSet:
+      author: "invoice_fair"
+      id: "changelog-1.0_2"
+      changes:
+        - createSequence:
+            sequenceName: "seq_account_id"
+            initialValue: 1
+            incrementBy: 50
+        - createTable:
+            tableName: "accounts"
+            columns:
+              - column:
+                  name: "id"
+                  type: "bigint"
+                  defaultValueSequenceNext: "seq_account_id"
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: "pk_accounts"
+              - column:
+                  name: "username"
+                  type: "varchar(255)"
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: "reference"
+                  type: "varchar(255)"
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: "name"
+                  type: "varchar(255)"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: "last_name"
+                  type: "varchar(255)"
+                  constraints:
+                    nullable: false
+  - changeSet:
+      author: "invoice_fair"
+      id: "changelog-1.0_3"
+      changes:
+        - createSequence:
+            sequenceName: "seq_total_id"
+            initialValue: 1
+            incrementBy: 50
+        - createTable:
+            tableName: "totals"
+            columns:
+              - column:
+                  name: "id"
+                  type: "bigint"
+                  defaultValueSequenceNext: "seq_total_id"
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: "pk_totals"
+              - column:
+                  name: "balance"
+                  type: "numeric"
+                  constraints:
+                    nullable: false
+                    defaultValue: 0.0
+              - column:
+                  name: "currency_id"
+                  type: "bigint"
+                  constraints:
+                    foreignKeyName: "fk_currency_total"
+                    referencedTableName: "currencies"
+                    referencedColumnNames: "id"
+                    nullable: false
+              - column:
+                  name: "account_id"
+                  type: "bigint"
+                  constraints:
+                    foreignKeyName: "fk_account_total"
+                    referencedTableName: "accounts"
+                    referencedColumnNames: "id"
+                    nullable: false
+  - changeSet:
+      author: "invoice_fair"
+      id: "changelog-1.0_load-data"
+      changes:
+        - sqlFile:
+            dbms: "postgresql"
+            endDelimeter: \nGO
+            path: "../data/initial_data.sql"
+            relativeToChangelogFile: true
