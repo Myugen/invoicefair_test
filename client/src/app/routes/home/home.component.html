@@ -2,9 +2,12 @@
   <nb-layout>
     <nb-layout-column>
       <p>Hola</p>
+      <div *ngIf="!!mail; then userSelectedBlock else notUserSelectedBlock"></div>
+      <ng-template #userSelectedBlock><p>Account <b>{{mail}}</b> has a balance of <b>{{totalBalance}}</b></p></ng-template>
+      <ng-template #notUserSelectedBlock><p>Please select an user account to show the current balance</p></ng-template>
     </nb-layout-column>
     <nb-layout-column>
-      <app-child></app-child>
+      <app-child (selectedUsername)="onSelectUsername($event)"></app-child>
     </nb-layout-column>
   </nb-layout>
 </ng-container>
