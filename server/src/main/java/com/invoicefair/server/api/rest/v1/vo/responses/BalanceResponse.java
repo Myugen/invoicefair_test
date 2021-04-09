@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class BalanceResponse {
-    private AccountResponse account;
-    private List<TotalResponse> totals;
+    private final AccountResponse account;
+    private final List<TotalResponse> totals;
 
     public static BalanceResponse fromDomain(Balance balance) {
         AccountResponse account = AccountResponse.fromDomain(balance.getAccount());

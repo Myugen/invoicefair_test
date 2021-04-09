@@ -7,7 +7,6 @@ import { BalanceService } from 'src/app/core/services/balance.service';
   templateUrl: 'home.component.html',
   styleUrls: ['./home.component.scss']
 })
-
 export class HomeComponent implements OnInit {
   public name: string;
   public mail: string;

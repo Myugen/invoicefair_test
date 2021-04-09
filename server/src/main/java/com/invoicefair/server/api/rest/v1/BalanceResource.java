@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class BalanceResource extends AbstractApiV1Resource {
 
-    public static final String PATH = AbstractApiV1Resource.path + "/balances";
+    public static final String PATH = BASE_API_V1_PATH + "/balances";
 
     public final BalanceService balanceService;
 
